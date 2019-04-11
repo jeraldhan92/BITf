@@ -1,0 +1,26 @@
+<html>
+<body>
+
+
+<form action="/action_page.php">
+<input id="wishlist" type="file" accept=".csv" oninput="processFile()"/>
+</form>
+
+<script src="pparse/papaparse.min.js"></script>
+<script>
+function processFile()
+{
+var file = document.getElementById('wishlist').files[0];
+  Papa.parse(file, {
+    header: true,
+    dynamicTyping: true,
+    complete: function(results) {
+      console.log(results)
+    }
+  });
+}
+
+</script>
+
+</body>
+</html>
